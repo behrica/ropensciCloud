@@ -15,9 +15,10 @@
   (h/html5
     [:body
     (f/form-to [:post "/create"]
-               "Token: " (f/text-field :token)
-               "Image name: " (f/text-field :imagename)
-               (f/submit-button "create")
+               [:p "Digitalocean token: " (f/text-field :token)]
+               [:p "Docker image name: " (f/text-field :imagename)]
+               [:p (f/submit-button "create droplet")]
+
                )
     ])
   )

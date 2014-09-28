@@ -14,5 +14,5 @@
     (println "imagename: " imagename)
 
     (do/create-droplet token
-                       nil {:name "core10":region "ams3" :size "512mb" :image 6373176 :ssh_keys [42550] :user_data user-data})))
+                       nil {:name "coreos-ropensci":region "ams3" :size "512mb" :image 6373176 :ssh_keys [42550] :user_data user-data})))
 

@@ -12,17 +12,17 @@ The current features list is very limited. The application takes as input a dock
 "mgymrek/docker-reproducibility-example" and a digital cloud api V2 token.
 
 It creates then a new droplet in digitalocean based on CoreOS and starts automatically a docker image with the specified name.
-It can take some minutes until RStudio is up and ruunning, even when teh Droplet is active already. Docker needs to download some staff.
+It can take some minutes until RStudio is up and running, even when the Droplet is active already. Docker needs to download some staff.
 
 
 The user can find the IP of the new droplet on his digitalocean dashboard. Sever name is by now: coreos-ropensci
-The port of Rstudio is by now 49000 (mapped from 8787 of teh docker container based on RStudio)
+The port of Rstudio is by now 49000 (mapped from 8787 of the docker container based on RStudio)
 
 ## Planned enhancements:
 - more configurations in web interface (digitialocean droplets specifications, ports, Rstudio user names)
 - support other images registries then docker hub
 - eventually wait until everything is up
-- print ip adress and port of Droplet at the end
+- print ip address and port of Droplet at the end
 - support multiple cloud providers (at least Amazon EC2)
 
 
@@ -40,4 +40,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Carsten Behring
