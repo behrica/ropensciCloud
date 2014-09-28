@@ -14,7 +14,7 @@
             :plugins [
                        [lein-ring "0.8.11"]
                        [environ/environ.lein "0.2.1"]
-                       [org.clojars.cvillecsteele/lein-git-version "1.1.3"]
+                       #[org.clojars.cvillecsteele/lein-git-version "1.1.3"]
                        ]
             :hooks [environ.leiningen.hooks]
             :uberjar-name "ropen-sci-cloud-standalone.jar"
