@@ -4,16 +4,34 @@
             [compojure.route :as route]
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [ropen-sci-cloud.digitalocean :refer [create-docker-droplet]]
+            [hiccup.form :as f]
+            [hiccup.page :as h :refer [html5]]
+  ))
 
-(defn splash []
+(defn page []
+  (h/html5
+    [:body
+    (f/form-to [:get "/create"]
+               (f/text-field :title)
+               (f/text-field :content)
+               (f/submit-button "create")
+               )
+    ])
+  )
+(defn create-droplet []
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body "Hello from ropen-sci-cloud" })
+    :body  (pr-str (create-docker-droplet)) })
+
 
 (defroutes app
            (GET "/" []
-                (splash))
+                (page))
+           (GET "/create" []
+                (create-droplet)
+                )
            (ANY "*" []
                 (route/not-found (slurp (io/resource "404.html")))))
 

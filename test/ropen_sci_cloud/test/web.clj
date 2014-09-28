@@ -1,4 +1,4 @@
-(ns ropen-sci-cloud.test.handler
+(ns ropen-sci-cloud.test.web
   (:require [clojure.test :refer :all]
             [ropen-sci-cloud.web :refer :all]
             [ring.mock.request :as mock]))
