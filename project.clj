@@ -20,6 +20,7 @@
             :uberjar-name "ropen-sci-cloud-standalone.jar"
             :ring {:handler ropen-sci-cloud.web/app}
             :min-lein-version "2.0.0"
+            :middleware [lein-git-version.plugin/middleware]
             :profiles
             {
               :dev {:dependencies [[ring-mock "0.1.5"]
