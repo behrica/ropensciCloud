@@ -28,7 +28,7 @@
 
 
 (defroutes
-           routes
+           app
            (GET "/" []
                 (page))
            (POST "/create" [token]
@@ -37,8 +37,6 @@
                 (route/not-found (slurp (io/resource "404.html")))))
 
 
-
-(def app (wrap-params routes))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
