@@ -5,5 +5,5 @@
   :date "Sun Sep 28 23:19:28 2014 +0200"
   :revision "8f691bf5ea905893383207d25d06f0268d467cdc"
   :author "Carsten Behring <carsten.behring@gmail.com>"
-  :version "0.1.0"
+  :version "0.1.1"
 })
