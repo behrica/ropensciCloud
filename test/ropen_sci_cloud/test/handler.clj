@@ -1,6 +1,6 @@
 (ns ropen-sci-cloud.test.handler
   (:require [clojure.test :refer :all]
-            [ropen-sci-cloud.handler :refer :all]
+            [ropen-sci-cloud.web :refer :all]
             [ring.mock.request :as mock]))
 
 (deftest test-app
