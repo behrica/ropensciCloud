@@ -14,6 +14,7 @@
                        [environ/environ.lein "0.2.1"]
                        ]
             :hooks [environ.leiningen.hooks]
+            :uberjar-name "ropen-sci-cloud-standalone.jar"
             ; :ring {:handler ropen-sci-cloud.handler/app}
             :min-lein-version "2.0.0"
             :profiles
