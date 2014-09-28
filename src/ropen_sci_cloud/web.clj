@@ -8,32 +8,37 @@
             [ropen-sci-cloud.digitalocean :refer [create-docker-droplet]]
             [hiccup.form :as f]
             [hiccup.page :as h :refer [html5]]
+            [ring.middleware.params :refer [wrap-params]]
   ))
 
 (defn page []
   (h/html5
     [:body
-    (f/form-to [:get "/create"]
-               (f/text-field :title)
-               (f/text-field :content)
+    (f/form-to [:post "/create"]
+               "Token: " (f/text-field :token)
                (f/submit-button "create")
                )
     ])
   )
-(defn create-droplet []
+
+(defn create-droplet [token]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-    :body  (pr-str (create-docker-droplet)) })
+    :body  (pr-str (create-docker-droplet token)) })
 
 
-(defroutes app
+(defroutes
+           routes
            (GET "/" []
                 (page))
-           (GET "/create" []
-                (create-droplet)
-                )
+           (POST "/create" [token]
+                (create-droplet token))
            (ANY "*" []
                 (route/not-found (slurp (io/resource "404.html")))))
+
+
+
+(def app (wrap-params routes))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]

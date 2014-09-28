@@ -3,7 +3,7 @@
             :url "http://example.com/FIXME"
             :dependencies [[org.clojure/clojure "1.6.0"]
                            [compojure "1.1.9"]
-                           [digitalocean "1.2"]
+                           [digitalocean "1.2" :exclusions [midje]]
                            [ring/ring-jetty-adapter "1.3.1"]
                            [environ "0.5.0"]
                            [hiccup "1.0.4"]
@@ -20,6 +20,8 @@
             :min-lein-version "2.0.0"
             :profiles
             {
-              :dev {:dependencies [[ring-mock "0.1.5"]]}
+              :dev {:dependencies [[ring-mock "0.1.5"]
+                                   [midje "1.6.3"]
+                                   ]}
               :production {:env {:production true}}
               })
