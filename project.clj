@@ -1,4 +1,4 @@
-(defproject ropen-sci-cloud "0.1.0"
+(defproject ropen-sci-cloud "0.1.1"
             :description "Easy cloud deployment of RStudio based docker images"
             :url "http://example.com/FIXME"
             :dependencies [[org.clojure/clojure "1.6.0"]
