@@ -4,7 +4,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.8"]
                  [digitalocean "1.2"]
-
+[ring/ring-jetty-adapter "1.2.2"]
             ;     [org.apache.jclouds/jclouds-all "1.8.0"]
             ;     [org.apache.jclouds.driver/jclouds-sshj "1.8.0"]
                  ]
@@ -12,6 +12,7 @@
 ;[lein-ring "0.8.11"]
 [environ/environ.lein "0.2.1"]
 ]
+:hooks [environ.leiningen.hooks]
  ; :ring {:handler ropen-sci-cloud.handler/app}
   :min-lein-version "2.0.0"
   :profiles
