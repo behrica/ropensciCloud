@@ -7,6 +7,7 @@
                            [ring/ring-jetty-adapter "1.3.1"]
                            [environ "0.5.0"]
                            [hiccup "1.0.4"]
+                           [selmer "0.7.1"]
                            ;     [org.apache.jclouds/jclouds-all "1.8.0"]
                            ;     [org.apache.jclouds.driver/jclouds-sshj "1.8.0"]
                            ]

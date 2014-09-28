@@ -19,5 +19,5 @@
 
 
 (fact
-  (app (mock/request :post "/create"  {:token "1234"})) => {:body "{:status \"OK\"}", :headers {"Content-Type" "text/plain"}, :status 200}
-  (provided (create-docker-droplet "1234")  => {:status "OK"}))
+  (app (mock/request :post "/create"  {:token "1234" :imagename "cboettig/ropensci"})) => {:body "{:status \"OK\"}", :headers {"Content-Type" "text/plain"}, :status 200}
+  (provided (create-docker-droplet "1234" "cboettig/ropensci")  => {:status "OK"}))

@@ -16,31 +16,32 @@
     [:body
     (f/form-to [:post "/create"]
                "Token: " (f/text-field :token)
+               "Image name: " (f/text-field :imagename)
                (f/submit-button "create")
                )
     ])
   )
 
-(defn create-droplet [token]
+(defn create-droplet [token imagename]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-    :body  (pr-str (create-docker-droplet token)) })
+    :body  (pr-str (create-docker-droplet token imagename)) })
 
 
 (defroutes
-           app
+           route
            (GET "/" []
                 (page))
-           (POST "/create" [token]
-                (create-droplet token))
+           (POST "/create" [token imagename]
+                (create-droplet token imagename))
            (ANY "*" []
                 (route/not-found (slurp (io/resource "404.html")))))
 
 
-
+(def app (site #'route))
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
-    (jetty/run-jetty (site #'app) {:port port :join? false})))
+    (jetty/run-jetty app {:port port :join? false})))
 
 ;; For interactive development:
 ;; (.stop server)
