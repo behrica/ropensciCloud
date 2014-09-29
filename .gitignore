@@ -9,3 +9,4 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 /.idea
+src/ropen_sci_cloud/version.clj
