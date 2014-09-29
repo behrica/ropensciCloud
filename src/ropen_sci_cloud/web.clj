@@ -17,7 +17,9 @@
     [:body
     (f/form-to [:post "/create"]
                [:p "Digitalocean token: " (f/text-field :token)]
+               [:p "Digitalocean ssh_id: " (f/text-field :ssh_id)]
                [:p "Docker image name: " (f/text-field :imagename)]
+
                [:p (f/submit-button "create droplet")]
                [:p]
                [:p "Version: " (pr-str info)]
@@ -25,18 +27,18 @@
     ])
   )
 
-(defn create-droplet [token imagename]
+(defn create-droplet [token imagename ssh_id]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-    :body  (pr-str (create-docker-droplet token imagename)) })
+    :body  (pr-str (create-docker-droplet token imagename ssh_id)) })
 
 
 (defroutes
            route
            (GET "/" []
                 (page))
-           (POST "/create" [token imagename]
-                (create-droplet token imagename))
+           (POST "/create" [token imagename ssh_id]
+                (create-droplet token imagename ssh_id))
            (ANY "*" []
                 (route/not-found (slurp (io/resource "404.html")))))
 
