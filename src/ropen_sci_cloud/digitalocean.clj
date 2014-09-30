@@ -4,15 +4,20 @@
             [selmer.parser :refer[render-file]]
             ))
 
-(defn make-user-data [imagename]
-  (render-file "user_data.txt" {:imagename imagename}))
+(defn make-user-data [image-name]
+  (render-file "user_data.txt" {:imagename image-name}))
 
-(defn create-docker-droplet [token imagename ssh_id]
-  (let [user-data (make-user-data imagename)]
-    ;(println "token: " token)
-    ;(println "user data: " user-data)
-    ;(println "imagename: " imagename)
+(defn find-key-from-name [token ssh-name]
+  (:id (first (filter #(= (:name % ) ssh-name)  (:ssh_keys (do/ssh-keys token) )))))
+
+(defn create-docker-droplet [token imagename ssh-name]
+  (let [user-data (make-user-data imagename)
+        ssh-id (find-key-from-name token ssh-name)
+        ]
+    (println "token: " token)
+    (println "user data: " user-data)
+    (println "imagename: " imagename)
 
     (do/create-droplet token
-                       nil {:name "coreos-ropensci":region "ams3" :size "512mb" :image 6373176 :ssh_keys [ssh_id] :user_data user-data})))
+                       nil {:name "coreos-ropensci" :region "ams3" :size "512mb" :image 6373176 :ssh_keys [ssh-id] :user_data user-data})))
 
