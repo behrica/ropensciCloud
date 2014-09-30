@@ -6,7 +6,6 @@
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
             [ropen-sci-cloud.digitalocean :refer [create-docker-droplet]]
-            [ropen-sci-cloud.version :refer [version]]
             [hiccup.form :as f]
             [hiccup.page :as h :refer [html5]]
             [ring.middleware.params :refer [wrap-params]]
@@ -22,7 +21,6 @@
 
                [:p (f/submit-button "create droplet")]
                [:p]
-               [:p "Version: " version]
                )
     ])
   )

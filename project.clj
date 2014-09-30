@@ -1,4 +1,4 @@
-(defproject ropen-sci-cloud "0.2.0-SNAPSHOT"
+(defproject ropen-sci-cloud "0.2-SNAPSHOT"
             :description "Easy cloud deployment of RStudio based docker images"
             :url "http://example.com/FIXME"
             :dependencies [[org.clojure/clojure "1.6.0"]
@@ -11,11 +11,10 @@
             :plugins [
                        [lein-ring "0.8.11"]
                        [environ/environ.lein "0.2.1"]
-                       [org.clojars.brendanyounger/lein-git-version "1.0.5"]
                        [lein-pprint "1.1.1"]
                        ]
             :hooks [environ.leiningen.hooks]
-            :uberjar-name "ropen-sci-cloud-standalone.jar"
+            :uberjar-name "ropen-sci-cloud-standalone-SNAPSHOT.jar"
             :ring {:handler ropen-sci-cloud.web/app}
             :min-lein-version "2.0.0"
             :profiles
