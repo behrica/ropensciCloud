@@ -1,9 +1,9 @@
-(defproject ropen-sci-cloud "0.1.2"
+(defproject ropen-sci-cloud "0.2.0-SNAPSHOT"
             :description "Easy cloud deployment of RStudio based docker images"
             :url "http://example.com/FIXME"
             :dependencies [[org.clojure/clojure "1.6.0"]
                            [compojure "1.1.9"]
-                           [digitalocean "1.2" :exclusions [midje]]
+                           [org.clojar.behrica/digitalocean "1.3-SNAPSHOT" :exclusions [midje]]
                            [ring/ring-jetty-adapter "1.3.1"]
                            [environ "0.5.0"]
                            [hiccup "1.0.4"]
